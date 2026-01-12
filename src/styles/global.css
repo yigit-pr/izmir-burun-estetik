@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Montserrat", sans-serif;
+
+  /* Colors */
+  --color-primary: #111827;
+  /* Deeper slate */
+  --color-accent: #C5A059;
+  /* More sophisticated gold */
+  --color-accent-light: #FDFCFB;
+}
+
+/* Global Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-primary);
+    background-color: var(--color-accent-light);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    @apply tracking-tight;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b48a4d;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .luxury-shadow {
+    shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #C5A059 0%, #E2C792 50%, #C5A059 100%);
+  }
+}

@@ -1,0 +1,231 @@
+---
+
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent"
+>
+  <div class="container mx-auto px-4 flex justify-between items-center">
+    <!-- Logo -->
+    <a
+      href="/"
+      class="flex items-center gap-3 group transition-transform duration-300 hover:scale-105"
+      id="header-logo-container"
+    >
+      <div class="relative w-10 h-10 flex items-center justify-center">
+        <!-- SVG Logo Design -->
+        <svg
+          viewBox="0 0 100 100"
+          class="w-full h-full text-accent transition-colors duration-300"
+          id="header-svg-logo"
+        >
+          <path
+            d="M30 80 Q 40 40, 70 20 Q 80 15, 85 25 Q 90 35, 75 45 Q 60 55, 30 80"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"></path>
+          <path
+            d="M45 65 Q 55 55, 65 60"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            opacity="0.6"></path>
+        </svg>
+      </div>
+      <span
+        class="text-xl font-serif font-bold tracking-[0.1em] text-white transition-colors duration-500"
+        id="header-logo-text"
+      >
+        İZMİR BURUN ESTETİĞİ
+      </span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex items-center gap-10">
+      <a
+        href="#hero"
+        class="nav-link text-white hover:text-accent transition-colors text-sm font-semibold tracking-widest uppercase"
+        >Anasayfa</a
+      >
+      <a
+        href="#why-us"
+        class="nav-link text-white hover:text-accent transition-colors text-sm font-semibold tracking-widest uppercase"
+        >Neden Biz?</a
+      >
+      <a
+        href="#process"
+        class="nav-link text-white hover:text-accent transition-colors text-sm font-semibold tracking-widest uppercase"
+        >Süreç</a
+      >
+      <a
+        href="#before-after"
+        class="nav-link text-white hover:text-accent transition-colors text-sm font-semibold tracking-widest uppercase"
+        >Sonuçlar</a
+      >
+      <a
+        href="#contact"
+        class="nav-link text-white hover:text-accent transition-colors text-sm font-semibold tracking-widest uppercase"
+        >İletişim</a
+      >
+      <a
+        href="#contact"
+        class="ml-4 bg-accent hover:bg-white text-primary px-8 py-3 rounded-full text-xs font-bold tracking-[0.2em] transition-all duration-500 shadow-lg shadow-accent/20"
+      >
+        RANDEVU AL
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden relative z-50 p-2 text-white transition-colors duration-300"
+    >
+      <div
+        class="w-8 h-5 flex flex-col justify-between items-end overflow-hidden"
+      >
+        <span class="w-8 h-0.5 bg-current transition-all duration-300 menu-line"
+        ></span>
+        <span class="w-6 h-0.5 bg-current transition-all duration-300 menu-line"
+        ></span>
+        <span class="w-4 h-0.5 bg-current transition-all duration-300 menu-line"
+        ></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-primary z-40 translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.7,0,0.3,1)] flex flex-col justify-center items-center p-8"
+  >
+    <div class="flex flex-col items-center gap-8 text-center">
+      <a
+        href="#hero"
+        class="mobile-nav-link text-3xl font-serif text-white hover:text-accent transition-colors"
+        >Anasayfa</a
+      >
+      <a
+        href="#why-us"
+        class="mobile-nav-link text-3xl font-serif text-white hover:text-accent transition-colors"
+        >Neden Biz?</a
+      >
+      <a
+        href="#process"
+        class="mobile-nav-link text-3xl font-serif text-white hover:text-accent transition-colors"
+        >Süreç</a
+      >
+      <a
+        href="#before-after"
+        class="mobile-nav-link text-3xl font-serif text-white hover:text-accent transition-colors"
+        >Sonuçlar</a
+      >
+      <a
+        href="#contact"
+        class="mobile-nav-link text-3xl font-serif text-white hover:text-accent transition-colors"
+        >İletişim</a
+      >
+
+      <div
+        class="mt-8 pt-8 border-t border-white/10 w-full flex flex-col items-center gap-4"
+      >
+        <p class="text-gray-400 text-sm tracking-widest uppercase">
+          Bize Ulaşın
+        </p>
+        <a href="tel:+905555555555" class="text-white text-xl font-light"
+          >+90 (555) 555 55 55</a
+        >
+        <div class="flex gap-4 mt-2">
+          <!-- Social Icons can be added here if needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("main-header");
+  const logoText = document.getElementById("header-logo-text");
+  const logoSvg = document.getElementById("header-svg-logo");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const lines = document.querySelectorAll(".menu-line");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+  // Header Scroll Effect
+  function updateHeader() {
+    if (window.scrollY > 50) {
+      header?.classList.remove("bg-transparent", "py-6");
+      header?.classList.add(
+        "bg-white/98",
+        "backdrop-blur-md",
+        "shadow-xl",
+        "py-4",
+      );
+
+      logoText?.classList.remove("text-white");
+      logoText?.classList.add("text-primary");
+
+      mobileBtn?.classList.remove("text-white");
+      mobileBtn?.classList.add("text-primary");
+
+      navLinks.forEach((link) => {
+        link.classList.remove("text-white");
+        link.classList.add("text-primary");
+      });
+    } else {
+      header?.classList.add("bg-transparent", "py-6");
+      header?.classList.remove(
+        "bg-white/98",
+        "backdrop-blur-md",
+        "shadow-xl",
+        "py-4",
+      );
+
+      logoText?.classList.add("text-white");
+      logoText?.classList.remove("text-primary");
+
+      mobileBtn?.classList.add("text-white");
+      mobileBtn?.classList.remove("text-primary");
+
+      navLinks.forEach((link) => {
+        link.classList.add("text-white");
+        link.classList.remove("text-primary");
+      });
+    }
+  }
+
+  // Mobile Menu Toggle
+  let isMenuOpen = false;
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    mobileMenu?.classList.toggle("translate-x-full");
+    mobileBtn?.classList.toggle("text-white", isMenuOpen);
+
+    // Burger Animation
+    lines[0].classList.toggle("w-8", !isMenuOpen);
+    lines[0].classList.toggle("w-6", isMenuOpen);
+    lines[0].classList.toggle("translate-y-2", isMenuOpen);
+    lines[0].classList.toggle("rotate-45", isMenuOpen);
+
+    lines[1].classList.toggle("opacity-0", isMenuOpen);
+    lines[1].classList.toggle("translate-x-full", isMenuOpen);
+
+    lines[2].classList.toggle("w-4", !isMenuOpen);
+    lines[2].classList.toggle("w-6", isMenuOpen);
+    lines[2].classList.toggle("-translate-y-2", isMenuOpen);
+    lines[2].classList.toggle("-rotate-45", isMenuOpen);
+
+    // Prevent Scroll
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+  }
+
+  mobileBtn?.addEventListener("click", toggleMenu);
+  mobileLinks.forEach((link) => link.addEventListener("click", toggleMenu));
+
+  window.addEventListener("scroll", updateHeader);
+  updateHeader();
+</script>

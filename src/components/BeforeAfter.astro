@@ -1,0 +1,181 @@
+---
+
+---
+
+<section id="before-after" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="text-accent uppercase text-xs font-bold tracking-widest"
+        >Başarı Hikayeleri</span
+      >
+      <h2 class="text-3xl md:text-5xl font-serif text-primary mt-2 mb-8">
+        Değişime Tanık Olun
+      </h2>
+
+      <!-- Tabs -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12" id="gallery-tabs">
+        <button
+          class="tab-btn px-6 py-2 rounded-full border border-gray-200 text-gray-600 hover:border-accent hover:text-accent transition-all active"
+          data-filter="all">Tümü</button
+        >
+        <button
+          class="tab-btn px-6 py-2 rounded-full border border-gray-200 text-gray-600 hover:border-accent hover:text-accent transition-all"
+          data-filter="natural">Doğal Burun</button
+        >
+        <button
+          class="tab-btn px-6 py-2 rounded-full border border-gray-200 text-gray-600 hover:border-accent hover:text-accent transition-all"
+          data-filter="kemerli">Kemerli Burun</button
+        >
+        <button
+          class="tab-btn px-6 py-2 rounded-full border border-gray-200 text-gray-600 hover:border-accent hover:text-accent transition-all"
+          data-filter="revizyon">Revizyon</button
+        >
+      </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+      <!-- Case 1 -->
+      <div
+        class="gallery-item group relative overflow-hidden rounded-2xl aspect-[4/5] cursor-pointer"
+        data-category="natural"
+      >
+        <!-- After Image -->
+        <img
+          src="https://images.unsplash.com/photo-1512413914633-b5043f4041ea?q=80&w=800&auto=format&fit=crop"
+          alt="Doğal Burun Estetiği Sonrası"
+          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 after-img"
+        />
+        <!-- Before Image -->
+        <img
+          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop"
+          alt="Doğal Burun Estetiği Öncesi"
+          class="absolute inset-0 w-full h-full object-cover z-0 before-img"
+        />
+        <div
+          class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur text-primary text-xs font-bold px-3 py-1 rounded-full shadow-sm"
+        >
+          <span class="label-text">SONRASI</span>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div
+        class="gallery-item group relative overflow-hidden rounded-2xl aspect-[4/5] cursor-pointer"
+        data-category="kemerli"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
+          alt="Kemerli Burun Estetiği Sonrası"
+          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 after-img"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop"
+          alt="Kemerli Burun Estetiği Öncesi"
+          class="absolute inset-0 w-full h-full object-cover z-0 before-img"
+        />
+        <div
+          class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur text-primary text-xs font-bold px-3 py-1 rounded-full shadow-sm"
+        >
+          <span class="label-text">SONRASI</span>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div
+        class="gallery-item group relative overflow-hidden rounded-2xl aspect-[4/5] cursor-pointer"
+        data-category="revizyon"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=800&auto=format&fit=crop"
+          alt="Revizyon Burun Estetiği Sonrası"
+          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 after-img"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=800&auto=format&fit=crop"
+          alt="Revizyon Burun Estetiği Öncesi"
+          class="absolute inset-0 w-full h-full object-cover z-0 before-img"
+        />
+        <div
+          class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur text-primary text-xs font-bold px-3 py-1 rounded-full shadow-sm"
+        >
+          <span class="label-text">SONRASI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Simple Filter Tab System
+  const tabs = document.querySelectorAll(".tab-btn");
+  const items = document.querySelectorAll(".gallery-item");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      // Remove active class from all
+      tabs.forEach((t) => {
+        t.classList.remove(
+          "bg-primary",
+          "text-white",
+          "border-primary",
+          "active",
+        );
+        t.classList.add("text-gray-600", "border-gray-200");
+      });
+      // Add active to current
+      tab.classList.add("bg-primary", "text-white", "border-primary", "active");
+      tab.classList.remove(
+        "text-gray-600",
+        "border-gray-200",
+        "hover:text-accent",
+      );
+
+      const filter = tab.getAttribute("data-filter");
+
+      items.forEach((item) => {
+        const category = item.getAttribute("data-category");
+        if (filter === "all" || category === filter) {
+          (item as HTMLElement).style.display = "block";
+          // Add a subtle fade in animation could go here
+        } else {
+          (item as HTMLElement).style.display = "none";
+        }
+      });
+    });
+  });
+
+  // Activate first tab by default style
+  const firstTab = document.querySelector(".tab-btn.active");
+  if (firstTab) {
+    firstTab.classList.remove("text-gray-600", "border-gray-200");
+    firstTab.classList.add("bg-primary", "text-white", "border-primary");
+  }
+
+  // Before/After Toggle Logic (Hover/Touch)
+  items.forEach((item) => {
+    const afterImg = item.querySelector(".after-img");
+    const label = item.querySelector(".label-text");
+
+    // Mouse Enter/Leave
+    item.addEventListener("mouseenter", () => {
+      afterImg?.classList.add("opacity-0");
+      if (label) label.textContent = "ÖNCESİ";
+    });
+    item.addEventListener("mouseleave", () => {
+      afterImg?.classList.remove("opacity-0");
+      if (label) label.textContent = "SONRASI";
+    });
+
+    // Touch events for mobile to prevent sticking
+    item.addEventListener("touchstart", (e) => {
+      e.preventDefault(); // Prevent scroll while touching image if needed, or just let it be
+      afterImg?.classList.add("opacity-0");
+      if (label) label.textContent = "ÖNCESİ";
+    });
+    item.addEventListener("touchend", () => {
+      afterImg?.classList.remove("opacity-0");
+      if (label) label.textContent = "SONRASI";
+    });
+  });
+</script>

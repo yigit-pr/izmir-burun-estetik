@@ -1,0 +1,67 @@
+---
+const steps = [
+  {
+    title: "Konsültasyon & Tasarım",
+    description: "Yüz hatlarınızın detaylı analizi yapılır ve hayalinizdeki burun yapısı, altın oran kurallarına göre 3D simülasyon eşliğinde planlanır.",
+    icon: "magnifying-glass"
+  },
+  {
+    title: "Operasyon Günü",
+    description: "Modem teknikler (Piezzo, Letdown) kullanılarak, dokuya en az zarar verecek şekilde, konforlu bir cerrahi süreç gerçekleştirilir.",
+    icon: "hospital"
+  },
+  {
+    title: "İyileşme Süreci",
+    description: "İlk hafta sonunda ateller alınır. Özel masaj teknikleri ve düzenli kontrollerle en doğal sonuca ulaşmanız sağlanır.",
+    icon: "heart"
+  }
+];
+---
+
+<section id="process" class="py-24 bg-slate-50 relative overflow-hidden">
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-accent uppercase text-sm font-bold tracking-[0.2em] block mb-4">Süreç</span>
+      <h2 class="text-4xl md:text-5xl font-serif text-primary leading-tight">Yolculuğunuz Nasıl Başlıyor?</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12">
+      {steps.map((step, index) => (
+        <div class="relative group">
+          <!-- Step Number -->
+          <div class="absolute -top-10 -left-4 text-primary/5 text-8xl font-serif font-bold group-hover:text-accent/10 transition-colors duration-500 pointer-events-none">
+            0{index + 1}
+          </div>
+          
+          <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full relative z-10">
+            <div class="w-14 h-14 bg-primary/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-primary transition-colors duration-500">
+               {index === 0 && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+               )}
+               {index === 1 && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+               )}
+               {index === 2 && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="m12 3 1.912 5.736L21 10.65l-5.736 1.912L13.35 21 11.438 15.264 3 13.35l5.736-1.912L10.65 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+               )}
+            </div>
+            <h3 class="text-xl font-medium text-primary mb-4">{step.title}</h3>
+            <p class="text-gray-500 font-light leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+          
+          {index < 2 && (
+            <div class="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2 z-20">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-200"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+  
+  <!-- Decorative Elements -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] -mr-48 -mt-48"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -ml-48 -mb-48"></div>
+</section>

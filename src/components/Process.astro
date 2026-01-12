@@ -1,19 +1,34 @@
 ---
 const steps = [
   {
-    title: "Konsültasyon & Tasarım",
-    description: "Yüz hatlarınızın detaylı analizi yapılır ve hayalinizdeki burun yapısı, altın oran kurallarına göre 3D simülasyon eşliğinde planlanır.",
+    title: "Ücretsiz Ön Görüşme",
+    description: "İlk adım olarak, beklentilerinizi ve sağlık geçmişinizi dinlemek için sizi kliniğimize davet ediyoruz. İsterseniz online olarak randevu planlayabiliriz.",
+    icon: "message"
+  },
+  {
+    title: "Kişiye Özel Tasarım & 3D",
+    description: "Yüz hatlarınızın detaylı analizi yapılır ve hayalinizdeki burun yapısı, altın oran kurallarına göre 3D simülasyon eşliğinde planlanır. Nihai kararı birlikte veririz.",
     icon: "magnifying-glass"
   },
   {
-    title: "Operasyon Günü",
-    description: "Modem teknikler (Piezzo, Letdown) kullanılarak, dokuya en az zarar verecek şekilde, konforlu bir cerrahi süreç gerçekleştirilir.",
+    title: "Hazırlık & Operasyon",
+    description: "Ameliyat gününüzde VIP transferinizle A+ hastaneye ulaşırsınız. En güncel Piezo cerrahisi ile dokularınıza zarar vermeden, konforlu bir işlem gerçekleştirilir.",
     icon: "hospital"
   },
   {
-    title: "İyileşme Süreci",
-    description: "İlk hafta sonunda ateller alınır. Özel masaj teknikleri ve düzenli kontrollerle en doğal sonuca ulaşmanız sağlanır.",
+    title: "Taburculuk & Konfor",
+    description: "Operasyon sonrası özel odanızda dinlenirsiniz. Genellikle aynı gün taburcu edilebilirsiniz. Ağrı yönetiminiz uzman ekibimizce titizlikle takip edilir.",
+    icon: "hotel"
+  },
+  {
+    title: "Atel Alımı & İyileşme",
+    description: "Ortalama 7 gün sonra burun üzerindeki plastik ateliniz alınır. Şişlikleriniz hızla azalır ve yeni profilinizin ilk konturları ortaya çıkmaya başlar.",
     icon: "heart"
+  },
+  {
+    title: "Kontroller & Destek",
+    description: "1., 3., 6. ve 12. aylarda düzenli kontrollerinizi yaparız. Bu süreçte 7/24 asistan hattımızdan bize ulaşabilir, sorularınızı iletebilirsiniz.",
+    icon: "sparkles"
   }
 ];
 ---
@@ -25,7 +40,7 @@ const steps = [
       <h2 class="text-4xl md:text-5xl font-serif text-primary leading-tight">Yolculuğunuz Nasıl Başlıyor?</h2>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-12">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-16">
       {steps.map((step, index) => (
         <div class="relative group">
           <!-- Step Number -->
@@ -33,29 +48,32 @@ const steps = [
             0{index + 1}
           </div>
           
-          <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full relative z-10">
+          <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500 h-full relative z-10">
             <div class="w-14 h-14 bg-primary/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-primary transition-colors duration-500">
                {index === 0 && (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                )}
                {index === 1 && (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scan-face"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><rect width="10" height="8" x="7" y="8" rx="2"/><path d="M9 12h6"/><path d="M15 12v-2"/></svg>
                )}
                {index === 2 && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+               )}
+               {index === 3 && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hotel"><path d="m3 21 2-2m14 2-2-2"/><path d="M5 21V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v15"/><path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/><path d="M10 9h4"/><path d="M10 13h4"/></svg>
+               )}
+               {index === 4 && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+               )}
+               {index === 5 && (
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="m12 3 1.912 5.736L21 10.65l-5.736 1.912L13.35 21 11.438 15.264 3 13.35l5.736-1.912L10.65 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
                )}
             </div>
-            <h3 class="text-xl font-medium text-primary mb-4">{step.title}</h3>
+            <h3 class="text-2xl font-serif text-primary mb-4">{step.title}</h3>
             <p class="text-gray-500 font-light leading-relaxed">
               {step.description}
             </p>
           </div>
-          
-          {index < 2 && (
-            <div class="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2 z-20">
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-200"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </div>
-          )}
         </div>
       ))}
     </div>
